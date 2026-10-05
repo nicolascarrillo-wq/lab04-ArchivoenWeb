@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('partials/nav', { page: typeof page !== 'undefined' ? page : '' }) %>
+  <main>
+    <section class="hero">
+      <h1>Contacto</h1>
+    </section>
+
+    <% if (typeof error !== "undefined") { %>
+      <p class="msg msg-error"><%= error %></p>
+    <% } %>
+
+    <% if (typeof enviado !== 'undefined' && enviado) { %>
+     <div class="summary-card" id="resumen">
+  <p class="msg msg-success">Mensaje enviado correctamente</p>
+  <p><strong>Nombre:</strong> <%= datos.nombre %></p>
+  <p><strong>Email:</strong> <%= datos.email %></p>
+  <p><strong>Mensaje:</strong> <%= datos.mensaje %></p>
+  <button type="button" class="btn btn-secondary" onclick="mostrarEdicion()">Editar mensaje</button>
+  <button type="button" class="btn" onclick="nuevoFormulario()">Enviar otro mensaje</button>
+</div>
+    <% } %>
+
+    <form action="/contact" method="POST" id="formulario" style="<%= (typeof enviado !== 'undefined' && enviado) ? 'display:none;' : '' %>">
+      <input type="text" name="nombre" placeholder="Nombre" value="<%= (typeof enviado !== 'undefined' && enviado) ? datos.nombre : '' %>" required>
+      <input type="email" name="email" placeholder="Email" value="<%= (typeof enviado !== 'undefined' && enviado) ? datos.email : '' %>" required>
+      <textarea name="mensaje" placeholder="Mensaje" required><%= (typeof enviado !== 'undefined' && enviado) ? datos.mensaje : '' %></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <script>
+
+  function nuevoFormulario() {
+    document.getElementById('formulario').reset();
+    document.getElementById('resumen').style.display = 'none';
+    document.getElementById('formulario').style.display = 'flex';
+  }
+</script>
+</body>
+</html>

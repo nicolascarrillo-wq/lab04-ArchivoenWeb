@@ -1,0 +1,9 @@
+<header class="navbar">
+  <div class="navbar-brand">Mi Sitio</div>
+  <nav>
+    <a href="/" class="<%= typeof page !== 'undefined' && page === 'home' ? 'active' : '' %>">Inicio</a>
+    <a href="/about" class="<%= typeof page !== 'undefined' && page === 'about' ? 'active' : '' %>">Acerca de</a>
+    <a href="/contact" class="<%= typeof page !== 'undefined' && page === 'contact' ? 'active' : '' %>">Contacto</a>
+    <a href="/services" class="<%= typeof page !== 'undefined' && page === 'services' ? 'active' : '' %>">Servicios</a>
+  </nav>
+</header>
