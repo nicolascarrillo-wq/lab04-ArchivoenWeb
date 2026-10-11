@@ -213,3 +213,14 @@ form button:hover {
 .btn-secondary:hover {
   background-color: #d1d5db;
 }
+body {
+  border-top: 10px solid #4f46e5;
+}
+
+.version-render {
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  color: #4f46e5;
+  font-weight: bold;
+}
