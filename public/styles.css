@@ -9,6 +9,7 @@ body {
   background-color: #f4f4f5;
   color: #1f2937;
   min-height: 100vh;
+  border-top: 10px solid #4f46e5;
 }
 
 .navbar {
@@ -84,19 +85,31 @@ main {
 
 .hero {
   text-align: center;
-  max-width: 600px;
-  animation: fadeIn 0.4s ease;
+  max-width: 800px;
+  width: 100%;
+  padding: 70px 30px;
+  border-radius: 24px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #4f46e5, #9333ea, #ec4899);
+  background-size: 200% 200%;
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.35);
+  animation: fadeIn 0.4s ease, gradiente 8s ease infinite;
 }
 
 .hero h1 {
-  font-size: 2.2rem;
-  color: #111827;
+  font-size: 3rem;
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
 .subtitle {
   color: #6b7280;
   margin-bottom: 24px;
+}
+
+.hero .subtitle {
+  color: #ffffff;
+  opacity: 0.9;
 }
 
 .btn {
@@ -113,6 +126,47 @@ main {
 .btn:hover {
   background-color: #4f46e5;
   transform: translateY(-1px);
+}
+
+.hero .btn {
+  background-color: #ffffff;
+  color: #4f46e5;
+  font-weight: 700;
+}
+
+.hero .btn:hover {
+  background-color: #ffffff;
+  transform: scale(1.08);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  padding-top: 40px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  padding: 24px;
+  width: 260px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.card h3 {
+  color: #4f46e5;
+  margin-bottom: 8px;
 }
 
 .msg {
@@ -183,10 +237,6 @@ form button:hover {
   background-color: #4f46e5;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 .summary-card {
   max-width: 400px;
   width: 100%;
@@ -213,9 +263,6 @@ form button:hover {
 .btn-secondary:hover {
   background-color: #d1d5db;
 }
-body {
-  border-top: 10px solid #4f46e5;
-}
 
 .version-render {
   text-align: center;
@@ -223,4 +270,150 @@ body {
   font-size: 14px;
   color: #4f46e5;
   font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradiente {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  padding-top: 40px;
+}
+
+.stat {
+  flex: 1;
+  min-width: 180px;
+  background: #1e1e2e;
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.stat:hover {
+  transform: scale(1.05);
+}
+
+.stat strong {
+  display: block;
+  font-size: 2.4rem;
+  color: #818cf8;
+}
+
+.stat span {
+  color: #d1d5db;
+  font-weight: 600;
+}
+
+.pasos {
+  width: 100%;
+  max-width: 900px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.pasos h2 {
+  color: #111827;
+  margin-bottom: 24px;
+}
+
+.timeline {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  counter-reset: paso;
+}
+
+.timeline li {
+  counter-increment: paso;
+  position: relative;
+  flex: 1;
+  min-width: 190px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 36px 18px 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.timeline li::before {
+  content: counter(paso);
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  border-radius: 50%;
+  background: #6366f1;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.timeline li strong {
+  display: block;
+  color: #4f46e5;
+  margin-bottom: 6px;
+}
+
+.timeline li span {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.reloj {
+  margin-top: 50px;
+  padding: 20px 30px;
+  background: #ffffff;
+  border-left: 6px solid #6366f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.reloj p {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.reloj strong {
+  color: #1f2937;
+  text-transform: capitalize;
+}
+
+.footer {
+  margin-top: 20px;
+  padding: 24px;
+  background: #1e1e2e;
+  color: #d1d5db;
+  text-align: center;
+  font-size: 0.9rem;
 }

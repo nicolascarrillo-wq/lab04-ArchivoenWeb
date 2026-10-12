@@ -12,11 +12,67 @@
   <%- include('partials/nav', { page: typeof page !== 'undefined' ? page : '' }) %>
   <main>
     <section class="hero">
-      <h1>Bienvenido a la Página de Inicio</h1>
-      <p class="subtitle">Sitio construido con Express y EJS</p>
+      <span class="badge">Versión 2</span>
+      <h1>Bienvenido a la Versión 2</h1>
+      <p class="subtitle">Sitio construido con Express y EJS, desplegado en Render</p>
       <a href="/about" class="btn">Ir a Acerca de</a>
     </section>
+
+    <section class="stats">
+      <div class="stat">
+        <strong>4</strong>
+        <span>Páginas</span>
+      </div>
+      <div class="stat">
+        <strong>3</strong>
+        <span>Tecnologías</span>
+      </div>
+      <div class="stat">
+        <strong>100%</strong>
+        <span>Automático</span>
+      </div>
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        <h3>Express</h3>
+        <p>Servidor web con rutas y controladores.</p>
+      </article>
+      <article class="card">
+        <h3>EJS</h3>
+        <p>Vistas dinámicas con partials reutilizables.</p>
+      </article>
+      <article class="card">
+        <h3>Render</h3>
+        <p>Despliegue automático desde GitHub.</p>
+      </article>
+    </section>
+
+    <section class="pasos">
+      <h2>Cómo llegó hasta aquí</h2>
+      <ol class="timeline">
+        <li><strong>Código</strong><span>Se edita el proyecto en el editor.</span></li>
+        <li><strong>Commit</strong><span>Los cambios se guardan con Git.</span></li>
+        <li><strong>Push</strong><span>Se envían al repositorio en GitHub.</span></li>
+        <li><strong>Deploy</strong><span>Render publica la nueva versión solo.</span></li>
+      </ol>
+    </section>
+
+    <section class="reloj">
+      <p>Página cargada el</p>
+      <strong id="fecha-carga"></strong>
+    </section>
   </main>
+
   <p class="version-render">Versión 2 - actualizada y desplegada automáticamente en Render</p>
+
+  <footer class="footer">
+    <p>Laboratorio S08 - Despliegue de aplicaciones - Tecsup</p>
+  </footer>
+
+  <script>
+    document.getElementById('fecha-carga').textContent =
+      new Date().toLocaleString('es-PE', { dateStyle: 'full', timeStyle: 'short' });
+  </script>
 </body>
 </html>
